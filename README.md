@@ -28,8 +28,10 @@ YaMDb - база данных, которая собирает отзывы о �
 2. Локально отредактируйте файл infra/nginx.conf, в строке server_name впишите IP-адрес сервера.
 3. Скопирeqnt файлы docker-compose.yaml и nginx/defult.conf из директории infra на сервер:
 
+```bash
     scp docker-compose.yml <username>@<host>:/home/<username>/docker-compose.yaml
     scp default.conf <username>@<host>:/home/<username>/nginx/default.conf
+```
 
 4. Добавьте в Secrets GitHub следующие переменные:
 
