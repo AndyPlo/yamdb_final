@@ -20,16 +20,19 @@ YaMDb - база данных, которая собирает отзывы о �
 5. Создайте суперюзера `docker-compose exec web python manage.py createsuperuser`.
 6. Соберите статику `docker-compose exec web python manage.py collectstatic --no-input`.
 7. При необходимости заполните базу `docker-compose exec web python manage.py loaddata fixtures.json`.
-8. Документация к API находится по адресу: <http://127.0.0.1:8000/redoc/>.
+8. Документация к API находится по адресу: <http://localhost/redoc/>.
 
 ### Настройка проекта для развертывания на удаленном сервере
 
 1. Установите на сервере docker и docker-dompose.
 2. Локально отредактируйте файл infra/nginx.conf, в строке server_name впишите IP-адрес сервера.
 3. Скопирeqnt файлы docker-compose.yaml и nginx/defult.conf из директории infra на сервер:
-    `scp docker-compose.yml <username>@<host>:/home/<username>/docker-compose.yaml`
-    `scp default.conf <username>@<host>:/home/<username>/nginx/default.conf`
+
+    scp docker-compose.yml <username>@<host>:/home/<username>/docker-compose.yaml
+    scp default.conf <username>@<host>:/home/<username>/nginx/default.conf
+
 4. Добавьте в Secrets GitHub следующие переменные:
+
     DB_ENGINE=django.db.backends.postgresql
     DB_NAME=имя базы данных postgres
     DB_USER=пользователь бд
@@ -49,6 +52,7 @@ YaMDb - база данных, которая собирает отзывы о �
 
     TELEGRAM_TO=ID чата, в который придет сообщение
     TELEGRAM_TOKEN=токен вашего бота
+
 5. Выполните команды:
     `git add .`
     `git commit -m 'ваш комментарий'`
